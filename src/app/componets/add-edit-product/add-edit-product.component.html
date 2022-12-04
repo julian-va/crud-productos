@@ -1,0 +1,106 @@
+<div class="row mt-2">
+  <div class="col-lg-4 offset-lg-4">
+    <div class="card text-white bg-secondary mb-3" style="max-width: 25rem">
+      <div class="card-header text-center">Agregar producto</div>
+      <div class="card-body">
+        <form [formGroup]="formProduct" (ngSubmit)="addProduct()">
+          <div class="form-group">
+            <div>
+              <label for="exampleInputEmail1" class="form-label mt-1"
+                >Producto</label
+              >
+              <input
+                formControlName="name"
+                type="text"
+                class="form-control"
+                aria-describedby="emailHelp"
+                placeholder="Nombre producto"
+              />
+              <small
+                *ngIf="getErrorsForm('name')"
+                id="emailHelp"
+                class="form-text text-muted"
+                >Nombre producto requerido.</small
+              >
+            </div>
+
+            <!------------------------->
+            <div>
+              <label for="exampleInputEmail1" class="form-label mt-1"
+                >Descripcion</label
+              >
+              <input
+                formControlName="description"
+                type="text"
+                class="form-control"
+                id="exampleInputText"
+                aria-describedby="emailHelp"
+                placeholder="Escriba una descripcion"
+              />
+              <small
+                *ngIf="getErrorsForm('description')"
+                id="emailHelp"
+                class="form-text text-muted"
+                >Debe agregar una descripcion.</small
+              >
+            </div>
+
+            <!------------------------->
+            <div>
+              <label for="exampleInputEmail1" class="form-label mt-1"
+                >Precio</label
+              >
+              <input
+                formControlName="price"
+                type="number"
+                class="form-control"
+                aria-describedby="emailHelp"
+                placeholder="Precio del producto"
+              />
+              <small
+                *ngIf="getErrorsForm('price')"
+                id="emailHelp"
+                class="form-text text-muted"
+                >Debe de ingresar un valor para el precio</small
+              >
+            </div>
+
+            <!------------------------->
+            <div>
+              <label for="exampleInputEmail1" class="form-label mt-1"
+                >Stock</label
+              >
+              <input
+                formControlName="stock"
+                type="number"
+                class="form-control"
+                aria-describedby="emailHelp"
+                placeholder="Stock producto"
+              />
+              <small
+                *ngIf="getErrorsForm('stock')"
+                id="emailHelp"
+                class="form-text text-muted"
+                >Debe ingresar una cantidad para el stock.</small
+              >
+            </div>
+          </div>
+          <!-----botones-->
+          <div class="row mt-2 text-center">
+            <div class="col-lg-6">
+              <button type="submit" class="btn btn-primary">
+                {{ id !== 0 ? "Actulizar" : "Crear" }}
+              </button>
+            </div>
+            <div class="col-lg-6">
+              <button type="button" class="btn btn-secondary" routerLink="/">
+                Volver
+              </button>
+            </div>
+          </div>
+          <!-----botones-->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
